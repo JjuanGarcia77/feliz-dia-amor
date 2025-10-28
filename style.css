@@ -112,69 +112,48 @@ canvas {
 }
 
 
-.titulo-celebracion {
-    font-size: 2em;
-    text-shadow: 0 0 15px #00ff88;
-    animation: brillo 3s ease-in-out infinite alternate;
-    text-align: center;
-    margin-top: 120px;
-    /* 🔹 Antes estaba en 60px, ahora bajamos más */
-    color: #eaffea;
-}
-
-
+/* 🌿 Mejora responsive del texto de celebración */
 .mensaje-celebracion {
-    position: absolute;
-    top: 25%;
-    /* 🔹 Subido arriba, lejos de las flores */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 85%;
-    background: rgba(0, 60, 0, 0.5);
-    padding: 25px;
+    position: relative; /* 🔹 para que no se superponga al canvas */
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 2rem auto;
+    max-width: 90%;
+    background: rgba(0, 60, 0, 0.55);
+    padding: clamp(1rem, 4vw, 2rem);
     border-radius: 20px;
     box-shadow: 0 0 20px #00ff88;
     color: #eaffea;
     font-style: italic;
-    font-size: 1.3em;
+    font-size: clamp(1rem, 2vw, 1.4rem);
     line-height: 1.6;
     text-align: center;
     z-index: 10;
     animation: aparecer 2s ease forwards;
 }
 
-@keyframes brillo {
-    from {
-        text-shadow: 0 0 5px #00ff88;
-    }
-
-    to {
-        text-shadow: 0 0 25px #00ff88;
-    }
+/* 💚 Título también responsive */
+.titulo-celebracion {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    text-shadow: 0 0 15px #00ff88;
+    animation: brillo 3s ease-in-out infinite alternate;
+    text-align: center;
+    margin-top: clamp(80px, 10vh, 120px);
+    color: #eaffea;
 }
 
-@keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: translate(-50%, -60%);
-    }
-
-    to {
-        opacity: 1;
-        transform: translate(-50%, -50%);
-    }
-}
-
-/* 🔹 Ajuste para pantallas pequeñas */
-@media (max-width: 768px) {
+/* 📱 Ajuste adicional para pantallas pequeñas */
+@media (max-width: 600px) {
     .mensaje-celebracion {
-        top: 30%;
-        font-size: 1.1em;
-        padding: 18px;
+        margin-top: 1rem;
+        padding: 1rem;
+        font-size: 1rem;
+        line-height: 1.5;
     }
 
     .titulo-celebracion {
-        margin-top: 90px;
-        /* 🔹 Ajuste más fino en móviles */
+        margin-top: 70px;
+        font-size: 1.3rem;
     }
 }
