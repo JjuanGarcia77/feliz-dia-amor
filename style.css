@@ -111,14 +111,25 @@ canvas {
     transform: translateX(-50%) scale(1.05);
 }
 
+/* 💚 Título centrado y visible sobre las flores */
+.titulo-celebracion {
+    font-size: clamp(1.8rem, 3vw, 2.3rem);
+    text-shadow: 0 0 15px #00ff88;
+    animation: brillo 3s ease-in-out infinite alternate;
+    text-align: center;
+    margin-top: clamp(150px, 18vh, 200px); /* 🔹 Bajamos el título */
+    color: #eaffea;
+    position: relative;
+    z-index: 10;
+}
 
-/* 🌿 Mejora responsive del texto de celebración */
+/* 🌿 Texto centrado y separado del canvas */
 .mensaje-celebracion {
-    position: relative; /* 🔹 para que no se superponga al canvas */
+    position: relative;
     top: auto;
     left: auto;
     transform: none;
-    margin: 2rem auto;
+    margin: 2.5rem auto 1rem auto; /* 🔹 más espacio arriba */
     max-width: 90%;
     background: rgba(0, 60, 0, 0.55);
     padding: clamp(1rem, 4vw, 2rem);
@@ -126,34 +137,23 @@ canvas {
     box-shadow: 0 0 20px #00ff88;
     color: #eaffea;
     font-style: italic;
-    font-size: clamp(1rem, 2vw, 1.4rem);
+    font-size: clamp(1rem, 2vw, 1.3rem);
     line-height: 1.6;
     text-align: center;
     z-index: 10;
     animation: aparecer 2s ease forwards;
 }
 
-/* 💚 Título también responsive */
-.titulo-celebracion {
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    text-shadow: 0 0 15px #00ff88;
-    animation: brillo 3s ease-in-out infinite alternate;
-    text-align: center;
-    margin-top: clamp(80px, 10vh, 120px);
-    color: #eaffea;
-}
-
-/* 📱 Ajuste adicional para pantallas pequeñas */
+/* 📱 Ajuste en móviles */
 @media (max-width: 600px) {
-    .mensaje-celebracion {
-        margin-top: 1rem;
-        padding: 1rem;
-        font-size: 1rem;
-        line-height: 1.5;
+    .titulo-celebracion {
+        margin-top: 120px; /* 🔹 aún más visible en pantallas pequeñas */
+        font-size: 1.5rem;
     }
 
-    .titulo-celebracion {
-        margin-top: 70px;
-        font-size: 1.3rem;
+    .mensaje-celebracion {
+        margin-top: 1.5rem;
+        padding: 1rem;
+        font-size: 1rem;
     }
 }
