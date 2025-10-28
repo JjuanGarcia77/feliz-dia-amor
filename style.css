@@ -1,0 +1,180 @@
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    color: #eaffea;
+    text-align: center;
+    background: linear-gradient(to bottom right, #0b3d0b, #145214, #1e6924);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.pantalla-inicial {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.botones button {
+    margin: 10px;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 10px;
+    background-color: #1e6924;
+    color: #eaffea;
+    cursor: pointer;
+    box-shadow: 0 0 10px #00ff88;
+    transition: all 0.3s ease;
+}
+
+.botones button:hover {
+    background-color: #00b359;
+    transform: scale(1.1);
+}
+
+.pantalla {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to top, #0f5132, #1e6924);
+}
+
+.contenido {
+    max-width: 500px;
+    background: rgba(0, 50, 0, 0.6);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px #00ff88;
+}
+
+button#volver1,
+button#volver2 {
+    margin-top: 20px;
+    background-color: #145214;
+    border: none;
+    color: #eaffea;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button#volver1:hover,
+button#volver2:hover {
+    background-color: #00b359;
+    transform: scale(1.05);
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.mensaje-flor {
+    position: absolute;
+    color: #eaffea;
+    background: rgba(0, 100, 0, 0.85);
+    border: 1px solid #00ff88;
+    border-radius: 15px;
+    padding: 10px 18px;
+    font-size: 1.1em;
+    pointer-events: none;
+    box-shadow: 0 0 15px #00ff88;
+    transition: opacity 1s, transform 1s;
+    z-index: 10;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.btn-volver {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #0b8a4d, #145a32);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.2em;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-volver:hover {
+    background: linear-gradient(90deg, #13b36a, #0b8a4d);
+    transform: translateX(-50%) scale(1.05);
+}
+
+
+.titulo-celebracion {
+    font-size: 2em;
+    text-shadow: 0 0 15px #00ff88;
+    animation: brillo 3s ease-in-out infinite alternate;
+    text-align: center;
+    margin-top: 120px;
+    /* 🔹 Antes estaba en 60px, ahora bajamos más */
+    color: #eaffea;
+}
+
+
+.mensaje-celebracion {
+    position: absolute;
+    top: 25%;
+    /* 🔹 Subido arriba, lejos de las flores */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 85%;
+    background: rgba(0, 60, 0, 0.5);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #00ff88;
+    color: #eaffea;
+    font-style: italic;
+    font-size: 1.3em;
+    line-height: 1.6;
+    text-align: center;
+    z-index: 10;
+    animation: aparecer 2s ease forwards;
+}
+
+@keyframes brillo {
+    from {
+        text-shadow: 0 0 5px #00ff88;
+    }
+
+    to {
+        text-shadow: 0 0 25px #00ff88;
+    }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* 🔹 Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+    .mensaje-celebracion {
+        top: 30%;
+        font-size: 1.1em;
+        padding: 18px;
+    }
+
+    .titulo-celebracion {
+        margin-top: 90px;
+        /* 🔹 Ajuste más fino en móviles */
+    }
+}
